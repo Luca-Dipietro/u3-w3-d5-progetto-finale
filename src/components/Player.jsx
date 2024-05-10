@@ -10,32 +10,28 @@ const Player = () => {
   const selectedSong = useSelector((state) => state.songs.selectedSong);
   return (
     <Container fluid className="fixed-bottom bg-container pt-1">
-      <Row className="h-100">
-        <Col lg={10} className="offset-lg-2 ">
-          {selectedSong && (
-            <Row>
-              <Col xs={6} className="d-flex" key={selectedSong.id}>
+      <Row className="h-100 ">
+        <Col lg={10} className="offset-lg-2">
+          <Row className="h-100 justify-content-center align-items-center">
+            {selectedSong && (
+              <Col xs={2} className="d-flex align-items-center">
                 <Card.Img
                   variant="top"
                   src={selectedSong.album.cover_small}
-                  style={{ width: "80px", height: "80px" }}
+                  style={{ width: "75px", height: "75px" }}
                 />
-                <Card.Body className="d-flex align-items-center justify-content-between">
-                  <div>
-                    <Card.Title className="text-white" style={{ fontSize: "0.8rem" }}>
-                      {selectedSong.title}
-                    </Card.Title>
-                    <Card.Text className="text-white" style={{ fontSize: "0.8rem" }}>
-                      {selectedSong.artist.name}
-                    </Card.Text>
-                  </div>
+                <Card.Body className="d-flex flex-column align-items-center justify-content-between">
+                  <Card.Title className="text-white text-center" style={{ fontSize: "0.8rem" }}>
+                    {selectedSong.title}
+                  </Card.Title>
+                  <Card.Text className="text-white text-center" style={{ fontSize: "0.8rem" }}>
+                    {selectedSong.artist.name}
+                  </Card.Text>
                 </Card.Body>
               </Col>
-            </Row>
-          )}
-          <Row className="h-100 flex-column justify-content-center align-items-center">
-            <Col xs={6} md={4} className="playerControls">
-              <div className="d-flex">
+            )}
+            <Col xs={6} className="playerControls">
+              <div className="d-flex align-items-center">
                 <Nav.Link href="#">
                   <img src={shuffle} alt="shuffle" />
                 </Nav.Link>
