@@ -11,9 +11,9 @@ const MainSection = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getSongAction("queen", "rock"));
-    dispatch(getSongAction("rhianna", "pop"));
-    dispatch(getSongAction("pop smoke", "hipHop"));
+    dispatch(getSongAction("Queen", "rock"));
+    dispatch(getSongAction("Michael Jackson", "pop"));
+    dispatch(getSongAction("Travis Scott", "hipHop"));
   }, []);
 
   return (

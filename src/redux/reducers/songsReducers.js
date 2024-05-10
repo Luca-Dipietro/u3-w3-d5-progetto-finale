@@ -1,4 +1,4 @@
-import { GET_SONGS } from "../actions";
+import { GET_ROCK_SONGS, GET_POP_SONGS, GET_HIPHOP_SONGS } from "../actions";
 
 const initialState = {
   rock: [],
@@ -8,14 +8,26 @@ const initialState = {
 
 const songsReducers = (state = initialState, action) => {
   switch (action.type) {
-    case GET_SONGS:
+    case GET_ROCK_SONGS: {
       return {
         ...state,
-        [action.genre]: action.payload,
+        rock: action.payload,
       };
+    }
+    case GET_POP_SONGS: {
+      return {
+        ...state,
+        pop: action.payload,
+      };
+    }
+    case GET_HIPHOP_SONGS: {
+      return {
+        ...state,
+        hipHop: action.payload,
+      };
+    }
     default:
       return state;
   }
 };
-
 export default songsReducers;

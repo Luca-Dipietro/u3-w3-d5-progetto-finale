@@ -1,4 +1,6 @@
-export const GET_SONGS = "GET_SONGS";
+export const GET_ROCK_SONGS = "GET_ROCK_SONGS";
+export const GET_POP_SONGS = "GET_POP_SONGS";
+export const GET_HIPHOP_SONGS = "GET_HIPHOP_SONGS";
 
 export const getSongAction = (artistName, genre) => {
   return async (dispatch) => {
@@ -6,7 +8,19 @@ export const getSongAction = (artistName, genre) => {
       const response = await fetch("https://striveschool-api.herokuapp.com/api/deezer/search?q=" + artistName);
       if (response.ok) {
         const { data } = await response.json();
-        dispatch({ type: GET_SONGS, payload: data, genre });
+        switch (genre) {
+          case "rock":
+            dispatch({ type: GET_ROCK_SONGS, payload: data });
+            break;
+          case "pop":
+            dispatch({ type: GET_POP_SONGS, payload: data });
+            break;
+          case "hipHop":
+            dispatch({ type: GET_HIPHOP_SONGS, payload: data });
+            break;
+          default:
+            throw new Error("Invalid genre");
+        }
       } else {
         throw new Error("Error in fetching songs");
       }
