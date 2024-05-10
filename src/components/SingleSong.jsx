@@ -1,13 +1,15 @@
+import { Col } from "react-bootstrap";
+
 const SingleSong = ({ data }) => {
   return (
-    <div className="col text-center">
+    <Col className="text-center">
       <img className="img-fluid" src={data.album.cover} alt="track" />
       <p>
         Track: {data.title}
         <br />
         Artist: {data.artist.name}
       </p>
-    </div>
+    </Col>
   );
 };
 
