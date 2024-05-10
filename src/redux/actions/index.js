@@ -1,6 +1,9 @@
 export const GET_ROCK_SONGS = "GET_ROCK_SONGS";
 export const GET_POP_SONGS = "GET_POP_SONGS";
 export const GET_HIPHOP_SONGS = "GET_HIPHOP_SONGS";
+export const SONG_SELECTED = "SONG_SELECTED";
+
+export const songSelectedAction = (song) => ({ type: SONG_SELECTED, payload: song });
 
 export const getSongAction = (artistName, genre) => {
   return async (dispatch) => {

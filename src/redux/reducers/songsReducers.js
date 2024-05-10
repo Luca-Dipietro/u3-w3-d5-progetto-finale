@@ -1,9 +1,10 @@
-import { GET_ROCK_SONGS, GET_POP_SONGS, GET_HIPHOP_SONGS } from "../actions";
+import { GET_ROCK_SONGS, GET_POP_SONGS, GET_HIPHOP_SONGS, SONG_SELECTED } from "../actions";
 
 const initialState = {
   rock: [],
   pop: [],
   hipHop: [],
+  selectedSong: null,
 };
 
 const songsReducers = (state = initialState, action) => {
@@ -24,6 +25,12 @@ const songsReducers = (state = initialState, action) => {
       return {
         ...state,
         hipHop: action.payload,
+      };
+    }
+    case SONG_SELECTED: {
+      return {
+        ...state,
+        selectedSong: action.payload,
       };
     }
     default:
