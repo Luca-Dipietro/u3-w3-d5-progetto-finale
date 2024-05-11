@@ -18,7 +18,7 @@ const Player = () => {
                 <Card.Img
                   variant="top"
                   src={selectedSong.album.cover_small}
-                  style={{ width: "75px", height: "75px" }}
+                  style={{ width: "85px", height: "85px" }}
                 />
                 <Card.Body className="d-flex flex-column align-items-center justify-content-between">
                   <Card.Title className="text-white text-center" style={{ fontSize: "0.8rem" }}>
