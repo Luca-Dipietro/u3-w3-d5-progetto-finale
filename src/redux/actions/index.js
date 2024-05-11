@@ -2,8 +2,13 @@ export const GET_ROCK_SONGS = "GET_ROCK_SONGS";
 export const GET_POP_SONGS = "GET_POP_SONGS";
 export const GET_HIPHOP_SONGS = "GET_HIPHOP_SONGS";
 export const SONG_SELECTED = "SONG_SELECTED";
+export const ADD_TO_FAVOURITES = "ADD_TO_FAVOURITES";
+export const REMOVE_FROM_FAVOURITES = "REMOVE_FROM_FAVOURITES";
 
 export const songSelectedAction = (song) => ({ type: SONG_SELECTED, payload: song });
+
+export const addToFavouritesAction = (song) => ({ type: ADD_TO_FAVOURITES, payload: song });
+export const removeFromFavouritesAction = (song) => ({ type: REMOVE_FROM_FAVOURITES, payload: song });
 
 export const getSongAction = (artistName, genre) => {
   return async (dispatch) => {
