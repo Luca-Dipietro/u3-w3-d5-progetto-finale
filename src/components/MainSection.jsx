@@ -8,6 +8,7 @@ const MainSection = () => {
   const rockSongs = useSelector((state) => state.songs.rock);
   const popSongs = useSelector((state) => state.songs.pop);
   const hipHopSongs = useSelector((state) => state.songs.hipHop);
+  const searchResults = useSelector((state) => state.search.searchResults);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -27,6 +28,22 @@ const MainSection = () => {
           <Nav.Link href="#">DISCOVER</Nav.Link>
         </Col>
       </Row>
+      {searchResults.length > 0 && (
+        <Row>
+          <Col xs="10">
+            <div id="search">
+              <h2>Search Results</h2>
+              <div className="imgLinks py-3">
+                <Row className="row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4" id="searchSection">
+                  {searchResults.slice(0, 4).map((songData) => (
+                    <SingleSong key={songData.id} data={songData} />
+                  ))}
+                </Row>
+              </div>
+            </div>
+          </Col>
+        </Row>
+      )}
       <Row>
         <Col xs="10">
           <div id="rock">
